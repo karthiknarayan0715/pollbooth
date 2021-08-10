@@ -1,0 +1,13 @@
+{% extends "user_base.html" %}
+
+{% block content %}
+<p>Team: {{team.name}}</p>
+<p>Team-id: {{team.id}}</p>
+
+{% for poll in polls %}
+{% if poll.is_ended == "False" %}
+    <a href="/poll{{poll.id}}">{{poll.title}}</a>
+{% endif %}
+
+{% endfor %}
+{% endblock %}

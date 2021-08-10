@@ -1,0 +1,27 @@
+{% extends "admin_base.html" %}
+
+{% block content %}
+<div class="form">
+    <form method="POST">
+        <p>Poll Title</p>
+        <input name="title">
+        <p>Question</p>
+        <input name="question">
+        <p>Team's id</p>
+        <input name="team_id">
+        <div id="options">
+            {% for i in range(option) %}
+            <p>Option {{i+1}}</p>
+            <input name="option-{{i+1}}">
+            <input name="removeopt" type="submit" value="Remove">
+            {% endfor %}
+        </div>
+        <input name="addoption" type="submit" value="Add option">
+        <br>
+        <input name="submit" type="submit" value="Submit">
+    
+    </form>
+</div>
+
+<script src="{{url_for('static', filename='script.js')}}"></script>
+{% endblock %}

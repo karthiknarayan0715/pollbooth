@@ -1,0 +1,10 @@
+{% extends "user_base.html" %}
+
+{% block content %}
+    <p>Hello, {{user.name}}</p>
+    {% if not teams == None %}
+        {% for team in teams %}
+            <a href="/team{{team.id}}">{{team.name}}</a>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

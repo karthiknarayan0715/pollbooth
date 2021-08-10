@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>{{title}}</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+    </head>
+    <body>
+        <a href="/logout">Logout</a>
+        <p>Welcome Admin</p>
+        <a href="/create_new_team">Create new team</a>
+        <a href="/create_new_poll">Create a poll</a>
+        <a href="/end_poll">End a poll</a>
+        <a href="/view_poll">View poll results</a>
+        {% block content %}
+        {% endblock %}
+        {% with messages = get_flashed_messages() %}  
+        {% if messages %}  
+              {% for message in messages %}  
+                   <p style="color: red;">{{ message }}</p>  
+              {% endfor %}  
+        {% endif %}  
+        {% endwith %}  
+    </body>
+</html>

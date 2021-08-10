@@ -1,0 +1,20 @@
+{% extends "admin_base.html" %}
+
+{% block content %}
+<div class="form">
+<form method="POST">
+    <ul>
+        {% for poll in polls %}
+            {% if poll['is_ended']=="False" %}
+            <li>{{poll['id']}}-{{poll['title']}}<br><input name="end.{{poll['id']}}" type="submit" value="End"></li>
+            
+            {% else %}
+            <li>{{poll['id']}}-{{poll['title']}}<br><p style="color: red;">Ended</p></li>
+
+            {% endif %}
+        {% endfor %}
+        </ul>
+</form>
+</div>
+
+{% endblock %}

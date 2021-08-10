@@ -1,0 +1,16 @@
+{% extends "admin_base.html" %}
+
+{% block content %}
+<div class="form">
+<form method="POST">
+    <p>Team name: </p>
+    <input name="teamname">
+    <p>Team password</p>
+    <input name="password" type="password">
+    <p>Reapeat password</p>
+    <input name="password2" type="password">
+    <input name="submit" value="Submit" type="submit">
+</form>
+</div>
+{% endblock %}
+

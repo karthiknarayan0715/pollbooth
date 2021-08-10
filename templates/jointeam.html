@@ -1,0 +1,22 @@
+{% extends "user_base.html" %}
+
+{% block content %}
+<div class="form">
+<form method="POST">
+    <p>Team id: </p>
+    <input name="team_id">
+    <p>Team password: </p>
+    <input name="team_password">
+    <input name="submit" type="submit" value="Submit">
+
+    {% with messages = get_flashed_messages() %}  
+    {% if messages %}  
+            {% for message in messages %}  
+                <p style="color: red;">{{ message }}</p>  
+            {% endfor %}  
+    {% endif %}  
+    {% endwith %}
+</form>   
+</div>   
+{% endblock %}
+

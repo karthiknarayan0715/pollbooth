@@ -1,0 +1,31 @@
+{% extends "user_base.html" %}
+ {% block content %}
+ <div class="form">
+<h>{{poll.title}}</h><br>
+{% if response == None %}
+<form method="POST">
+    <p>{{poll.question}}</p><br><br>
+
+    {% for option in poll.options %}
+        {% if option != "" %}
+        <input name="option" type="checkbox" value="{{option}}" class="poll_checkbox" id="{{option}}" onclick="check(this)">
+        <label for="{{option}}">{{option}}</label><br><br>
+        {% endif %}    
+    {% endfor %}
+    <input type="submit" value="Vote" name="vote">  
+</form>
+{% else %}
+<p>Looks like you have filled this form already</p><br><br>
+<p>{{poll.question}}</p><br><br>
+<p>Your choice: {{response['options']}}</p>
+{% endif %}
+</div>
+<script>
+    function check(checkbox){
+        var checkboxes = document.querySelectorAll('.poll_checkbox')
+        checkboxes.forEach((item) => {
+            if (item !== checkbox) item.checked =  false})
+    }
+</script>
+
+ {% endblock %}

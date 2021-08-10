@@ -1,0 +1,14 @@
+{% extends "admin_base.html" %}
+
+{% block content %}
+{% for poll in polls %}
+<div class="form">
+    <p>{{poll.title}}</p>
+    <p>{{poll.question}}</p>
+    {% for option, votes in result[poll.id].items() %}
+    <p>{{option}}: {{votes}}</p>
+    {% endfor %}
+</div>
+<br><br>
+{% endfor %}
+{% endblock %}
