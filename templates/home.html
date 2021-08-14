@@ -1,10 +1,12 @@
 {% extends "user_base.html" %}
 
 {% block content %}
-    <p>Hello, {{user.name}}</p>
-    {% if not teams == None %}
+    <div class="text">Hello, {{user.name}}</div>
+    <div id="listable">
+        {% if not teams == None %}
         {% for team in teams %}
-            <a href="/team{{team.id}}">{{team.name}}</a>
+            <a href="/team{{team.id}}"><div class="list_object">{{team.name}}</div></a>
         {% endfor %}
-    {% endif %}
+        {% endif %}
+    </div>
 {% endblock %}

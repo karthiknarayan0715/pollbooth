@@ -1,11 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 <form method="POST">
-    <div class="form">
-        <p>Username</p>
-        <input name="username">
-        <p>Password</p>
-        <input name="password" type="password"><br>
+    <div id="form">
+
+        <div class="text">Username</div><input name="username" placeholder="username">
+        <div class="text">Password</div><input name="password" type="password" placeholder="password"><br><br>
         <input name="submit" type="submit" value="Submit" class="button" id="submit">
     </div>
 </form>

@@ -3,13 +3,19 @@
         <title>{{title}}</title>
         <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
     </head>
-    <body>
-        <a href="/logout">Logout</a>
-        <p>Welcome Admin</p>
-        <a href="/create_new_team">Create new team</a>
-        <a href="/create_new_poll">Create a poll</a>
-        <a href="/end_poll">End a poll</a>
-        <a href="/view_poll">View poll results</a>
+    <body>        
+        <div id="header">
+            <div id="title" class="text">Admin</div>
+            <a href="/admin"><div id="box" class="text">Home</div></a>
+            <a href="/create_new_team"><div id="box" class="text">Create new Team</div></a>
+            <a href="/create_new_poll"><div id="box" class="text">Create a Poll</div></a>
+            <a href="/end_poll"><div id="box" class="text">End a Poll</div></a>
+            <a href="/view_poll"><div id="box" class="text">View Poll Results</div></a>
+            <div id="to_right">
+                <a href="/logout"><div id="box" class="text">Logout</div></a>
+            </div>
+            
+        </div>
         {% block content %}
         {% endblock %}
         {% with messages = get_flashed_messages() %}  

@@ -1,13 +1,15 @@
 {% extends "user_base.html" %}
 
 {% block content %}
-<p>Team: {{team.name}}</p>
-<p>Team-id: {{team.id}}</p>
+<div class="text">Team: {{team.name}}</div>
+<div class="text">Team-id: {{team.id}}</div>    
+<div id="listable">
+    {% for poll in polls %}
+    {% if poll.is_ended == "False" %}
+        <a href="/poll{{poll.id}}"><div class="list_object">{{poll.title}}</div></a>    
+    {% endif %}
+    
+    {% endfor %}
+</div>
 
-{% for poll in polls %}
-{% if poll.is_ended == "False" %}
-    <a href="/poll{{poll.id}}">{{poll.title}}</a>
-{% endif %}
-
-{% endfor %}
 {% endblock %}

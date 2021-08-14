@@ -1,23 +1,21 @@
 {% extends "admin_base.html" %}
 
 {% block content %}
-<div class="form">
+<div id="form">
     <form method="POST">
-        <p>Poll Title</p>
-        <input name="title">
-        <p>Question</p>
-        <input name="question">
-        <p>Team's id</p>
-        <input name="team_id">
+        <div class="text">Poll Title</div><input name="title" placeholder="poll title">
+        <div class="text">Question</div><input name="question" placeholder="question">
+        <div class="text">Team ID</div><input name="team_id" placeholder="team id">
         <div id="options">
             {% for i in range(option) %}
-            <p>Option {{i+1}}</p>
-            <input name="option-{{i+1}}">
+            <div class="text">Option {{i+1}}</div>
+            <input name="option-{{i+1}}" placeholder="option {{i+1}}">
             <input name="removeopt" type="submit" value="Remove">
             {% endfor %}
         </div>
-        <input name="addoption" type="submit" value="Add option">
         <br>
+        <input name="addoption" type="submit" value="Add option">
+        <br><br>
         <input name="submit" type="submit" value="Submit">
     
     </form>

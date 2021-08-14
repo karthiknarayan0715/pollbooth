@@ -1,14 +1,11 @@
 {% extends "admin_base.html" %}
 
 {% block content %}
-<div class="form">
+<div id="form">
 <form method="POST">
-    <p>Team name: </p>
-    <input name="teamname">
-    <p>Team password</p>
-    <input name="password" type="password">
-    <p>Reapeat password</p>
-    <input name="password2" type="password">
+    <div class="text">Team Name</div><input name="teamname" placeholder="team name">
+    <div class="text">Team Password</div><input name="password" type="password" placeholder="password">
+    <div class="text">Repeat password</div><input name="password2" type="password" placeholder="repeat password"><br><br>
     <input name="submit" value="Submit" type="submit">
 </form>
 </div>

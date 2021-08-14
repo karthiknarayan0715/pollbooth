@@ -1,18 +1,18 @@
 {% extends "base.html" %}
+
 {% block content %}
-<div class="form">
+<div id="form">
     <form method="POST">
-        <p>Username</p>
-        <input name="username">
-        <p>Password</p>
-        <input name="password">
-        <p>Repeat Password</p>
-        <input name="password2">
-        <p>Name</p>
-        <input name="name">
-        <p>Email</p>
-        <input name="email"><br>
-        <input name="submit" type = "submit" value="Submit" class="button" id="submit">
+        <div class="text">Username </div><input type="text" name="username" placeholder="username">
+        <div class="text">Password </div><input type="password" name="password" placeholder="password">
+        <div class="text">Repeat Password </div><input type="password" name="password2" placeholder="confirm password">
+        <div class="text">Name </div><input type="text" name="name" placeholder="name">
+        <div class="text">email </div><input type="email" name="email" placeholder="email">
+        
+        
+        <br><br>
+        <input type="submit" value="Submit">
     </form>
 </div>
-{% endblock %}}
+
+{% endblock %}

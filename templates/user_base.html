@@ -1,24 +1,30 @@
 <html>
     <head>
-        <title>
-                {{user.username}}
-            </title>
+        <title>{{user.username}}</title>
         <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
     </head>
+    <body>
+        <div id="header">
+            <div id="title" class="text">{{user.username}}</div>
+            <a href="{{url_for('home')}}"><div id="box" class="text">Home</div></a>
+                <a href="{{url_for('jointeam')}}"><div id="box" class="text">Join a Team</div></a>
+            <div id="to_right">
+                <a href="{{url_for('logout')}}"><div id="box" class="text">Logout</div></a>
+            </div>
+
+        </div>
+            <div class="flashed">
+                {% block content %}
+                {% endblock %}
+                
+                {% with messages = get_flashed_messages() %}  
+                {% if messages %}  
+                      {% for message in messages %}  
+                           <div class="text">{{ message }}</p>  
+                      {% endfor %}  
+                {% endif %}  
+                {% endwith %} 
+            </div> 
+    </body>
+
 </html>
-<div id="header">
-<a href="/">Home</a>
-<a href="/join_team">Join a team</a>
-<a href="/logout">Logout</a>
-</div>
-
-{% block content %}
-{% endblock %}
-
-{% with messages = get_flashed_messages() %}  
-{% if messages %}  
-      {% for message in messages %}  
-           <p style="color: red;">{{ message }}</p>  
-      {% endfor %}  
-{% endif %}  
-{% endwith %}  

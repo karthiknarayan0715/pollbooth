@@ -2,12 +2,17 @@
 
 {% block content %}
 {% for poll in polls %}
-<div class="form">
-    <p>{{poll.title}}</p>
-    <p>{{poll.question}}</p>
+<div>
+    <div class="text">{{poll.title}}</div>
+    <div class="text">{{poll.question}}</div>
+    {% if not result[poll.id]=={} %}
     {% for option, votes in result[poll.id].items() %}
-    <p>{{option}}: {{votes}}</p>
+    <div class="text">{{option}}: {{votes}}</div>
     {% endfor %}
+    {% else %}
+    <div class="text">No votes received yet</div>
+    {% endif %}
+
 </div>
 <br><br>
 {% endfor %}

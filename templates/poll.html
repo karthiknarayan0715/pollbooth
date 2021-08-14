@@ -1,25 +1,25 @@
 {% extends "user_base.html" %}
  {% block content %}
- <div class="form">
-<h>{{poll.title}}</h><br>
-{% if response == None %}
-<form method="POST">
-    <p>{{poll.question}}</p><br><br>
-
-    {% for option in poll.options %}
-        {% if option != "" %}
-        <input name="option" type="checkbox" value="{{option}}" class="poll_checkbox" id="{{option}}" onclick="check(this)">
-        <label for="{{option}}">{{option}}</label><br><br>
-        {% endif %}    
-    {% endfor %}
-    <input type="submit" value="Vote" name="vote">  
-</form>
+    <div class="text">{{poll.title}}</div>
+    {% if response == None %}
+    <div id="form">
+        <form method="POST">
+            <div class="text">{{poll.question}}</div>
+            <div class="option">
+            {% for option in poll.options %}
+                {% if option != "" %}
+                    <input name="option" type="checkbox" value="{{option}}" class="poll_checkbox" id="{{option}}" onclick="check(this)">
+                    <div class="text"><label for="{{option}}">{{option}}</label></div>                
+                {% endif %}    
+            {% endfor %}
+            <input type="submit" value="Vote" name="vote">  
+            </div>
+            
+        </form>
+    </div>
 {% else %}
-<p>Looks like you have filled this form already</p><br><br>
-<p>{{poll.question}}</p><br><br>
-<p>Your choice: {{response['options']}}</p>
+    <div class="text">Looks like you have filled this form already<br><br>{{poll.question}}<br><br>Your choice: {{response['options']}}</div>
 {% endif %}
-</div>
 <script>
     function check(checkbox){
         var checkboxes = document.querySelectorAll('.poll_checkbox')

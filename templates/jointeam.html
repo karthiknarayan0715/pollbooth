@@ -1,12 +1,13 @@
 {% extends "user_base.html" %}
 
 {% block content %}
-<div class="form">
+<div id="form">
 <form method="POST">
-    <p>Team id: </p>
+    <div class="text">Team id</div>
     <input name="team_id">
-    <p>Team password: </p>
+    <div class="text">Team Password</div>
     <input name="team_password">
+    <br><br>
     <input name="submit" type="submit" value="Submit">
 
     {% with messages = get_flashed_messages() %}  

@@ -1,35 +1,82 @@
-body{
-    background-color: cyan;
-}
-.flash_message{
-    color: red;
-}
-.flashed{
-    background-color: white;
-}
-.form{
-    background-color: darkcyan;
-    align-content: center;
-    text-align: center;
-    padding-top: 60px;
-    padding-bottom: 60px;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    margin-left: 500px;
-    margin-right: 500px;
-}
-.button{
+*
+{
     padding: 5px;
-    background-color: darkgray;
 }
-#submit{
-    margin-top: 20px;
+body
+{
+    background-color: black;
 }
-#header{
-    background-color: darkcyan;
-    padding: 30px;
-    margin-bottom: 30px;
+.text
+{
+    color: white;
 }
-p{
-    margin: 10px;
+a
+{
+    color: white;
+    text-decoration: none;
+}
+#header .text
+{
+    display: inline;    
+}
+#box
+{
+    border: 1px solid white;
+    padding: 5px 20px 5px 20px;
+    margin-right: 10px;
+}
+#box:hover
+{
+    border: 1px solid thistle;
+}
+#box:hover .link
+{
+    color: thistle;
+}
+#title
+{
+    font-size: 20px;
+    padding: 2px;
+}
+#to_right
+{
+    position: relative;
+    float: right;
+}
+#form
+{
+    padding: 30px 0px 30px 0px;
+    margin: 100px 500px 0px 500px;
+    background-color: dimgray;
+    text-align: center;
+}
+.flashed
+{
+    text-align: center;
+}
+#listable
+{
+    padding: 50px 0px 50px 0px;
+    margin: 50px 100px 100px 100px;
+    background-color: black;
+    text-align: center;
+}
+#listable .list_object
+{
+    padding: 20px 0px 20px 0px; 
+    background-color: dimgrey;
+    text-align: center;
+}
+#listable .list_object:hover
+{
+    background-color: gray;
+}
+.link
+{
+    color: white;
+    text-decoration: none;
+}
+#header
+{
+    padding-bottom: 40px;
 }
