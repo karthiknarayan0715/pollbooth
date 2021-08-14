@@ -16,8 +16,8 @@ def login():
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
         username = request.form.get('username')
         password = request.form.get('password')
-        if not check_input(username) or not check_input(password):
-            flash('invalid inputs')
+        if not check_username(username) or not check_password(password):
+            flash('invalid input, Only a-z, 0-9 and _ is allowed')
             return redirect('/login')
         conn = mysql.connect()
         cursor = conn.cursor(DictCursor)
@@ -59,7 +59,7 @@ def register():
         password2 = request.form.get('password2')
         email = request.form.get('email')
         name = request.form.get('name')
-        if not check_input(username) or not check_input(password) or not check_input(password2) or not check_input(email) or not check_input(name):
+        if not check_username(username) or not check_password(password) or not check_password(password2) or not check_input(email) or not check_input(name):
             flash('invalid inputs')
             return redirect('/register')
         if username and password and password2 and email and name:
@@ -325,6 +325,22 @@ def poll_page(poll_id):
             conn.commit()
             return redirect('/poll'+poll_id)
     return render_template('poll.html', user = get_user(), poll = poll, response = user_response)
+
+
+def check_username(input):
+    allowed = "abcdefghijklmnopqrstuvwxyz_0123456789"
+    for i in input:
+        if i not in allowed:
+            return False
+        return True
+
+
+def check_password(input):
+    allowed = "abcdefghijklmnopqrstuvwxyz_0123456789"
+    for i in input:
+        if i not in allowed:
+            return False
+        return True
 
 
 #Checks the input entered by the user
