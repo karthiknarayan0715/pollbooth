@@ -5,7 +5,6 @@ from flask.templating import render_template
 from pymysql.cursors import DictCursor
 from app import app, mysql, update_models, get_user
 option=0
-print('imported')
 #ROUTE: LOGIN
 @app.route("/login", methods = ['GET', 'POST'])
 def login():
